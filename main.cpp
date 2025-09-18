@@ -1,4 +1,5 @@
 #include <iostream>
+#include "User.h"
 
 int main()
 {
@@ -16,7 +17,7 @@ int main()
 	
 	
 	2. Registration part
-		2.1 Ask for username
+		2.1 Ask for username --> check 
 		2.2 If username avaiable proceed
 		2.3 Ask for password (would be nice if it showed '*' instead of letters)
 		2.4 Ask User to confirm password
@@ -31,6 +32,7 @@ int main()
 	
 	*/
 
+	User test;
 
 	return 0;
 }
