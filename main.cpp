@@ -1,5 +1,6 @@
 #include <iostream>
 #include "User.h"
+#include "fileHandling.h"
 
 int main()
 {
@@ -32,7 +33,7 @@ int main()
 	
 	*/
 
-	User test;
+	start();
 
 	return 0;
 }
