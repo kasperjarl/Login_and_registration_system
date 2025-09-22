@@ -19,7 +19,7 @@ int main()
 	
 	2. Registration part
 		2.1 Ask for username --> check 
-		2.2 If username avaiable proceed
+		2.2 If username available proceed
 		2.3 Ask for password (would be nice if it showed '*' instead of letters)
 		2.4 Ask User to confirm password
 		2.5 If Password matches proceed
@@ -32,8 +32,16 @@ int main()
 			handle invalid login).
 	
 	*/
+	
+	
+	const std::string filename{ "Users.txt" };
+	std::fstream file{ openOrCreateFile(filename) };
+	checkFile(file, filename);
 
-	start();
+	std::string username{ "username_test" };
+	std::string pwd{ "pwd_test" };
+
+	writeUser(file, username, pwd);
 
 	return 0;
 }

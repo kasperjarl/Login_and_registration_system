@@ -1,31 +1,34 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include <string_view>
 #include "invalidInput.h"
 #include "fileHandling.h"
 
 // the "biiiiiiiiiig" Q is: How do I create a "global" file if none exist
 
 
-const std::string userfile_name{ "Users.txt" };
-
-bool fileExists(const std::string& filename)
+std::fstream openOrCreateFile(std::string filename)
 {
-	return std::filesystem::exists(filename);
+	std::fstream file{ filename, file.binary | file.trunc | file.in | file.out };
+	return file;
 }
 
-void start()
+
+void checkFile(std::fstream& file, std::string_view filename)
 {
-	if (fileExists(userfile_name))
+	if (!file.is_open())
 	{
-		std::cout << "File found!\n";
+		std::cout << "Failed to open " << filename << '\n';
 	}
 	else
 	{
-		std::cout << "File does not exists.\n";
-		std::cout << "Creating it now..\n";
-		std::fstream file{ userfile_name };
+		std::cout << "File could be opened\n";
 	}
-
 }
 
+void writeUser(std::fstream& file, std::string_view username, std::string_view pwd)
+{
+	file.write(username, username.size());
+	std::cout "idk, using pwd here: " << pwd << '\n';
+}
