@@ -15,20 +15,29 @@ std::fstream openOrCreateFile(std::string filename)
 }
 
 
-void checkFile(std::fstream& file, std::string_view filename)
+bool fileCouldBeOpened(std::fstream& file, std::string_view filename)
 {
 	if (!file.is_open())
 	{
 		std::cout << "Failed to open " << filename << '\n';
+		return true;
 	}
-	else
-	{
-		std::cout << "File could be opened\n";
-	}
+	std::cout << "File could be opened\n";
+	return false;
+	
 }
 
-void writeUser(std::fstream& file, std::string_view username, std::string_view pwd)
+// This does write to the file, but it OVERwrites
+void writeUser(std::string_view filename, std::string_view username, std::string_view pwd)
 {
-	file.write(username, username.size());
-	std::cout "idk, using pwd here: " << pwd << '\n';
+	std::fstream file;
+
+	// I want to use the func below to check if I can open the file... 
+	if (fileCouldBeOpened())
+	{
+		std::cout << "\n--> trying to write the user <--\n";
+		file.open(filename, std::ios::app);
+		file << username << ":" << pwd << '\n';
+		return;
+	}	
 }

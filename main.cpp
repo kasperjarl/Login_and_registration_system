@@ -32,16 +32,17 @@ int main()
 			handle invalid login).
 	
 	*/
-	
-	
+
 	const std::string filename{ "Users.txt" };
-	std::fstream file{ openOrCreateFile(filename) };
-	checkFile(file, filename);
+
 
 	std::string username{ "username_test" };
 	std::string pwd{ "pwd_test" };
+	std::string username1{ "122username_test" };
+	std::string pwd1{ "122pwd_test" };
 
-	writeUser(file, username, pwd);
+	writeUser(filename, username, pwd);
+	writeUser(filename, username1, pwd1);
 
 	return 0;
 }
