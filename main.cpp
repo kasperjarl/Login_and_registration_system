@@ -34,15 +34,19 @@ int main()
 	*/
 
 	const std::string filename{ "Users.txt" };
+	std::fstream file{ openOrCreateFile(filename) };
 
-
-	std::string username{ "username_test" };
+	std::string username{ "1username_test" };
 	std::string pwd{ "pwd_test" };
-	std::string username1{ "122username_test" };
-	std::string pwd1{ "122pwd_test" };
+	writeUser(file, filename, username, pwd);
 
-	writeUser(filename, username, pwd);
-	writeUser(filename, username1, pwd1);
+	std::string username1{ "2username_test" };
+	std::string pwd1{ "2pwd_test" };
+	writeUser(file, filename, username1, pwd1);
+
+	std::string username2{ "3username_test" };
+	std::string pwd2{ "3pwd_test" };
+	writeUser(file, filename, username2, pwd2);
 
 	return 0;
 }
