@@ -6,6 +6,8 @@
 #include "fileHandling.h"
 
 
+bool file_exists(const std::string& filename);
+
 std::fstream openOrCreateFile(std::string filename);
 
 bool fileCouldBeOpened(std::fstream& file, std::string_view filename);
